@@ -62,7 +62,7 @@ with open(bank_data, 'r') as csvfile:
     greatest_dec = min(changes)
     greatest_decrease_profits = changes.index(greatest_dec)
 
-#print results and save to file
+#print results
  
 print('Financial Analysis')
 print('------------------------------')
@@ -72,3 +72,14 @@ print(f'Average Change: ${profit_change}')
 print(f'Greatest Increase in Profits: {month_change[int(greatest_increase_profits)]} (${greatest_inc})')
 print(f'Greatest Decrease in Profits: {month_change[int(greatest_decrease_profits)]} (${greatest_dec})')
 
+#save to text file
+
+with open('analysis.txt', 'w') as file:
+    file.write('Financial Analysis\n')
+    file.write('-----------------------------\n')
+    file.write(f'Total Months: {total_months}\n')
+    file.write(f'Total: ${profit_losses}\n')
+    file.write(f'Average Change: ${profit_change}\n')
+    file.write(f'Greatest Increase in Profits: {month_change[int(greatest_increase_profits)]} (${greatest_inc})\n')
+    file.write(f'Greatest Decrease in Profits: {month_change[int(greatest_decrease_profits)]} (${greatest_dec})\n')
+    file.close()
